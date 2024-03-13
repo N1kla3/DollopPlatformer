@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5smf5bex6rh3"]
+[gd_scene load_steps=5 format=3 uid="uid://b5smf5bex6rh3"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_0roq8"]
+[ext_resource type="Texture2D" uid="uid://c851i3nddug8r" path="res://Assets/icon.svg" id="2_nbj7x"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bd6na"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nbj7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3s1g1"]
+
+[node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_0roq8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_bd6na")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3s1g1")
