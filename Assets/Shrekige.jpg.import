@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv4hrh0lunv2s"
-path="res://.godot/imported/pixil-frame-0.png-1e2e14a6fca0ab207413f8785ae4b7df.ctex"
+uid="uid://yii8dki5nh21"
+path="res://.godot/imported/Shrekige.jpg-df15856f089ea014c3aef49bbe29973d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-1e2e14a6fca0ab207413f8785ae4b7df.ctex"]
+source_file="res://Assets/Shrekige.jpg"
+dest_files=["res://.godot/imported/Shrekige.jpg-df15856f089ea014c3aef49bbe29973d.ctex"]
 
 [params]
 

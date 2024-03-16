@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://bxhwibuunmkcp"]
+
+[ext_resource type="Texture2D" uid="uid://bv4hrh0lunv2s" path="res://Assets/fireling.png" id="1_pc0sc"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pc0sc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_pc0sc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
