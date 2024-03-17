@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf15hvpo84lip"]
+[gd_scene load_steps=8 format=3 uid="uid://cf15hvpo84lip"]
 
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="3_16tdy"]
 [ext_resource type="PackedScene" uid="uid://bhdp6qfevaflx" path="res://Scenes/Ball.tscn" id="3_e08ni"]
 [ext_resource type="PackedScene" uid="uid://b5smf5bex6rh3" path="res://Scenes/Character.tscn" id="3_f1v0k"]
-[ext_resource type="SpriteFrames" uid="uid://cgdfoeciqa5cu" path="res://Assets/heartanim.tres" id="4_1vk63"]
 [ext_resource type="PackedScene" uid="uid://n0cexqkpwx4i" path="res://Scenes/Platform.tscn" id="4_gpy75"]
+[ext_resource type="PackedScene" uid="uid://dyfsjcs054qyn" path="res://Scenes/MainMenu.tscn" id="4_yopcr"]
+[ext_resource type="SpriteFrames" uid="uid://bxhwibuunmkcp" path="res://Assets/firelinganimation.tres" id="6_pqy67"]
 
 [sub_resource type="GDScript" id="GDScript_s5hp6"]
-script/source = "extends Node
+script/source = "extends GameState
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,23 +27,6 @@ script = SubResource("GDScript_s5hp6")
 [node name="Ball" parent="." instance=ExtResource("3_e08ni")]
 position = Vector2(-9.525, -111)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_enabled = true
-follow_viewport_scale = 8.59
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-texture_repeat = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_repeat = 2
-position = Vector2(11.0594, 17.9278)
-texture = ExtResource("3_16tdy")
-
-[node name="Character" parent="." instance=ExtResource("3_f1v0k")]
-position = Vector2(51, -72)
-animation = ExtResource("4_1vk63")
-
 [node name="Platform" parent="." instance=ExtResource("4_gpy75")]
 position = Vector2(45, 64)
 
@@ -51,3 +35,30 @@ position = Vector2(161, 11)
 
 [node name="Platform3" parent="." instance=ExtResource("4_gpy75")]
 position = Vector2(-71, 7)
+
+[node name="Character" parent="." instance=ExtResource("3_f1v0k")]
+position = Vector2(149, -130)
+animation = ExtResource("6_pqy67")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_yopcr")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer2"]
+follow_viewport_scale = 8.59
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer2/ParallaxBackground"]
+texture_filter = 1
+texture_repeat = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(11.0594, 17.9278)
+texture = ExtResource("3_16tdy")

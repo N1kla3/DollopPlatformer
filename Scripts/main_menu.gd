@@ -1,11 +1,24 @@
 extends Control
 
+class_name MainMenu
 
-# Called when the node enters the scene tree for the first time.
+var start_button : BaseButton
+var exit_button : BaseButton
+
 func _ready() -> void:
-	pass # Replace with function body.
+	start_button = get_node("CenterContainer/VBoxContainer/StartButton")
+	exit_button = get_node("CenterContainer/VBoxContainer/ExitButton")
+	start_button.pressed.connect(start_button_pressed)
+	exit_button.pressed.connect(exit_button_pressed)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	print(has_focus())
+
+func start_button_pressed():
+	print('start')
+	start_button.disabled = true
+	hide()
+
+func exit_button_pressed():
+	print('Exit')
+	get_tree().quit()
