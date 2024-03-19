@@ -13,15 +13,20 @@ const MOVEDOWN = 'move_down'
 
 const JUMP = 'jump'
 
+var game_state : GameState
+
 @export var animation : SpriteFrames
 
 @onready var animation_sprite = $AnimatedSprite2D
 
 func _ready() -> void:
 	animation_sprite.sprite_frames = animation
+	game_state = get_parent()
 
 
 func _physics_process(delta: float) -> void:
+	if game_state and not game_state.is_player_input_allowed:
+		return
 
 	var direction = Input.get_vector(MOVELEFT, MOVERIGHT, MOVEUP, MOVEDOWN)
 	velocity.x = SPEED * direction.x

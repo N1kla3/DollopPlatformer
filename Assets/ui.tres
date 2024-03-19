@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cvw3ng5tlro5c"]
+
+[ext_resource type="FontFile" uid="uid://d4qtaqo4ws2i" path="res://Assets/ARCADECLASSIC.TTF" id="1_7eq6x"]
+[ext_resource type="Texture2D" uid="uid://dnahfwtjcg6n5" path="res://Assets/buttons.png" id="2_q1fku"]
+[ext_resource type="StyleBox" uid="uid://dias0u6w2ho64" path="res://Assets/button_style.tres" id="3_2i70h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swgqt"]
+texture = ExtResource("2_q1fku")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(36.2088, 115.142, 57.5548, 19.1304)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nuapr"]
+texture = ExtResource("2_q1fku")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(35.9249, 88.3191, 58.7204, 20.761)
+
+[resource]
+default_font = ExtResource("1_7eq6x")
+default_font_size = 24
+Button/colors/font_color = Color(0.207843, 0.592157, 0.654902, 1)
+Button/colors/font_disabled_color = Color(0.576471, 0.580392, 0.87451, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.94902, 0.776471, 0.337255, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0.6, 0.239216, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 22
+Button/fonts/font = ExtResource("1_7eq6x")
+Button/styles/disabled = SubResource("StyleBoxTexture_swgqt")
+Button/styles/focus = ExtResource("3_2i70h")
+Button/styles/hover = ExtResource("3_2i70h")
+Button/styles/normal = ExtResource("3_2i70h")
+Button/styles/pressed = SubResource("StyleBoxTexture_nuapr")

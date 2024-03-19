@@ -18,6 +18,9 @@ animations = [{
 radius = 55.3173
 
 [node name="Character" type="CharacterBody2D"]
+collision_mask = 15
+platform_floor_layers = 4278190091
+platform_wall_layers = 4
 script = ExtResource("1_0roq8")
 
 [node name="Camera2D" type="Camera2D" parent="."]

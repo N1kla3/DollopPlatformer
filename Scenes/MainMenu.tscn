@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyfsjcs054qyn"]
+[gd_scene load_steps=4 format=3 uid="uid://dyfsjcs054qyn"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_e5qqg"]
+[ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="2_e80wm"]
+[ext_resource type="Theme" uid="uid://cvw3ng5tlro5c" path="res://Assets/ui.tres" id="3_cq1fm"]
 
-[node name="Control" type="Control"]
+[node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 15
@@ -17,6 +19,17 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_e5qqg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.376471)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("2_e80wm")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -36,10 +49,20 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Start the game"
+theme = ExtResource("3_cq1fm")
+text = "Play"
+
+[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("3_cq1fm")
+disabled = true
+button_mask = 0
+text = "Settings"
 
 [node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+theme = ExtResource("3_cq1fm")
 text = "Exit"

@@ -19,7 +19,3 @@ func _process(delta: float) -> void:
 		translate(delta * Vector2(speed, 0))
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.is_pressed and event.keycode == KEY_ESCAPE:
-			get_tree().quit()
