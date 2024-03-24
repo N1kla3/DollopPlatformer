@@ -55,6 +55,7 @@ jump={
 2d_physics/layer_2="StaticMapLayer"
 2d_physics/layer_3="StaticWall"
 2d_physics/layer_4="MovablePlatform"
+2d_physics/layer_5="Projectiles"
 
 [rendering]
 

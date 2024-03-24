@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cf15hvpo84lip"]
+[gd_scene load_steps=11 format=3 uid="uid://cf15hvpo84lip"]
 
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="3_16tdy"]
 [ext_resource type="PackedScene" uid="uid://b5smf5bex6rh3" path="res://Scenes/Character.tscn" id="3_f1v0k"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dmw1fsrqopjv1" path="res://Assets/Nebula Blue.png" id="6_76a6s"]
 [ext_resource type="SpriteFrames" uid="uid://bxhwibuunmkcp" path="res://Assets/firelinganimation.tres" id="6_pqy67"]
 [ext_resource type="Texture2D" uid="uid://c4hx0pw2btwed" path="res://Assets/Stars-Big_1_2_PC.png" id="8_j64ic"]
+[ext_resource type="PackedScene" uid="uid://bhdp6qfevaflx" path="res://Scenes/Ball.tscn" id="8_r0a2l"]
+[ext_resource type="PackedScene" uid="uid://eo16ukgrmotl" path="res://Scenes/ProjectileSpawner.tscn" id="9_r22id"]
 
 [sub_resource type="GDScript" id="GDScript_s5hp6"]
 script/source = "extends GameState
@@ -94,3 +96,9 @@ position = Vector2(307, -42)
 
 [node name="Platform5" parent="." instance=ExtResource("4_gpy75")]
 position = Vector2(-337, -130)
+
+[node name="Ball" parent="." instance=ExtResource("8_r0a2l")]
+position = Vector2(-69, -256)
+
+[node name="ProjectileSpawner" parent="." instance=ExtResource("9_r22id")]
+position = Vector2(-199, -105)
