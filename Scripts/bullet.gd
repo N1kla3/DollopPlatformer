@@ -3,6 +3,7 @@ class_name Bullet
 
 var SPEED: float = 200
 var should_start_moving: bool = false
+var target_location: Vector2
 
 func _ready() -> void:
 	print("bullet ready")
@@ -11,11 +12,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if should_start_moving:
-		translate(Vector2(SPEED * delta, 0))
+		var direction = target_location - global_position
+		translate(direction.normalized() * SPEED * delta)
 
 func fly_to(location: Vector2):
 	look_at(location)
 	should_start_moving = true
+	target_location = location
 
 func on_hit(body: Node2D):
 	print("hit by %s", body.name)

@@ -20,6 +20,6 @@ func spawn_projectile(target: Vector2):
 	print("Spawn projectile")
 	# bullet = Bullet.new()	
 	bullet = bullet_scene.instantiate()
-	bullet.transform = transform
+	bullet.global_position = global_position
 	get_tree().root.add_child(bullet)
 	bullet.fly_to(target)
