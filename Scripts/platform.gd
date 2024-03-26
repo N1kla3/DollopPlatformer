@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var Speed: float = 200
+@export var Speed: float = 50
 @export var ChangeDirectionTime: float = 1
 
 var temp_time: float = 0

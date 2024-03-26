@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://cvw3ng5tlro5c" path="res://Assets/ui.tres" id="3_cq1fm"]
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 15

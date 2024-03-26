@@ -20,6 +20,7 @@ func _ready() -> void:
 	start_button.pressed.connect(start_button_pressed)
 	exit_button.pressed.connect(exit_button_pressed)
 	settings_button.pressed.connect(on_settings)
+	get_tree().paused = true
 
 func _enter_tree() -> void:
 	print("Main menu entered the tree")
@@ -27,7 +28,7 @@ func _enter_tree() -> void:
 func start_button_pressed():
 	print('Play button pressed')
 	game_state.is_player_input_allowed = true
-	hide()
+	toggle_menu(false)
 
 func exit_button_pressed():
 	print('Exit')
@@ -41,4 +42,5 @@ func toggle_menu(enabled : bool):
 		show()
 	else:
 		hide()
+	get_tree().paused = enabled
 	
