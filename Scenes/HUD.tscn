@@ -1,29 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw3ee6nuica4u"]
+[gd_scene load_steps=3 format=3 uid="uid://bw3ee6nuica4u"]
 
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_kst1w"]
+[ext_resource type="Texture2D" uid="uid://sk4mc03shr7w" path="res://Scenes/HealthBar.png" id="2_jayma"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
-anchor_right = 1.109
-anchor_bottom = 1.106
-offset_left = -3.0
-offset_top = -3.0
-offset_right = -0.568115
-offset_bottom = 0.311951
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kst1w")
 
-[node name="Button" type="Button" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(111, 22)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.126
-anchor_top = 0.199
-anchor_right = 0.452
-anchor_bottom = 0.462
-offset_left = -35.152
-offset_top = -59.952
-offset_right = -328.76
-offset_bottom = -210.688
-text = "Press me"
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.0
+offset_right = 111.0
+offset_bottom = 11.0
+grow_vertical = 2
+value = 33.0
+rounded = true
+nine_patch_stretch = true
+texture_over = ExtResource("2_jayma")
+texture_progress = ExtResource("2_jayma")

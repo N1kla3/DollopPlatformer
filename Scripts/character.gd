@@ -14,6 +14,7 @@ const MOVEDOWN = 'move_down'
 const JUMP = 'jump'
 
 var game_state : GameState
+var health: int = 100
 
 @export var animation : SpriteFrames
 
