@@ -2,8 +2,10 @@ extends Node2D
 
 class_name GameState
 
+var player_scene = load("res://Scenes/Character.tscn")
 var is_player_input_allowed = true
 var main_menu_ui : MainMenu
+var player: Platform_character
 
 func _ready() -> void:
 	print("GameState started")
@@ -12,6 +14,9 @@ func _ready() -> void:
 func _enter_tree() -> void:
 	print("GameState started in enter tree")
 	main_menu_ui = get_node("MenuCanvas/MainMenu")	
+	player = player_scene.instantiate()
+	add_child.call_deferred(player)
+	player.global_position = Vector2(149, -130)
 
 
 func _process(delta: float) -> void:

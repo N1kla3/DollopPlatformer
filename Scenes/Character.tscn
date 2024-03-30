@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5smf5bex6rh3"]
+[gd_scene load_steps=6 format=3 uid="uid://b5smf5bex6rh3"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_0roq8"]
 [ext_resource type="Texture2D" uid="uid://bv4hrh0lunv2s" path="res://Assets/fireling.png" id="2_fdhoj"]
+[ext_resource type="SpriteFrames" uid="uid://bxhwibuunmkcp" path="res://Assets/firelinganimation.tres" id="2_v5tba"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bd6na"]
 animations = [{
@@ -22,6 +23,7 @@ collision_mask = 15
 platform_floor_layers = 11
 platform_wall_layers = 4
 script = ExtResource("1_0roq8")
+animation = ExtResource("2_v5tba")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -13,8 +13,16 @@ const MOVEDOWN = 'move_down'
 
 const JUMP = 'jump'
 
+const level_up_point: int = 50
+
 var game_state : GameState
 var health: int = 100
+var expirience: int = 0
+var level: int = 1
+
+signal health_changed(old_value, new_value)
+signal exp_changed(old_value, new_value)
+signal level_changed(old_value, new_value)
 
 @export var animation : SpriteFrames
 
