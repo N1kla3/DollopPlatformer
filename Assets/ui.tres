@@ -46,3 +46,5 @@ Button/styles/focus = ExtResource("3_2i70h")
 Button/styles/hover = ExtResource("3_2i70h")
 Button/styles/normal = ExtResource("3_2i70h")
 Button/styles/pressed = SubResource("StyleBoxTexture_nuapr")
+Label/colors/font_color = Color(1, 1, 0.168627, 1)
+Label/font_sizes/font_size = 36

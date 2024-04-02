@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3a0x1kxvbv0m"]
+
+[ext_resource type="Script" path="res://Scripts/coin.gd" id="1_n6nq4"]
+[ext_resource type="SpriteFrames" uid="uid://cgdfoeciqa5cu" path="res://Assets/heartanim.tres" id="2_emuxk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugdok"]
+size = Vector2(25, 25)
+
+[node name="Coin" type="Area2D"]
+collision_layer = 32
+collision_mask = 9
+script = ExtResource("1_n6nq4")
+animation = ExtResource("2_emuxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ugdok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
