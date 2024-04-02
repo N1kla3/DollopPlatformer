@@ -16,9 +16,9 @@ const JUMP = 'jump'
 const level_up_point: int = 50
 
 var game_state : GameState
-var health: int = 100
-var expirience: int = 0
-var level: int = 1
+var health: int = 100 : set = setHealth
+var expirience: int = 0 : set = setExp
+var level: int = 1 : set = setLevel
 
 signal health_changed(old_value, new_value)
 signal exp_changed(old_value, new_value)
@@ -27,6 +27,21 @@ signal level_changed(old_value, new_value)
 @export var animation : SpriteFrames
 
 @onready var animation_sprite = $AnimatedSprite2D
+
+func setHealth(new_val : int):
+	var cache = health
+	health = new_val
+	health_changed.emit(cache, health)
+
+func setExp(new_val : int):
+	var cache = expirience
+	expirience = new_val
+	exp_changed.emit(cache, expirience)
+
+func setLevel(new_val : int):
+	var cache = level
+	level = new_val
+	level_changed.emit(cache, level)
 
 func _ready() -> void:
 	animation_sprite.sprite_frames = animation

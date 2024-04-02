@@ -6,6 +6,7 @@ var player_scene = load("res://Scenes/Character.tscn")
 var is_player_input_allowed = true
 var main_menu_ui : MainMenu
 var player: Platform_character
+var score: int
 
 func _ready() -> void:
 	print("GameState started")

@@ -2,6 +2,7 @@ extends Area2D
 class_name Bullet
 
 var SPEED: float = 200
+var DAMAGE: float = 20
 var should_start_moving: bool = false
 var target_location: Vector2
 
@@ -22,6 +23,8 @@ func fly_to(location: Vector2):
 
 func on_hit(body: Node2D):
 	print("hit by %s", body.name)
+	var temp = body as Platform_character
+	temp.health -= 20
 	hide()
 	should_start_moving = false
 	collision_layer = 0x00
