@@ -1,6 +1,67 @@
-[gd_scene format=3 uid="uid://dvxr8g2rdfu8f"]
+[gd_scene load_steps=6 format=3 uid="uid://dvxr8g2rdfu8f"]
+
+[ext_resource type="Script" path="res://Scripts/result_screen.gd" id="1_6ti8m"]
+[ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="1_8s5ru"]
+[ext_resource type="Theme" uid="uid://cvw3ng5tlro5c" path="res://Assets/ui.tres" id="2_2eao4"]
+[ext_resource type="FontFile" uid="uid://d4qtaqo4ws2i" path="res://Assets/ARCADECLASSIC.TTF" id="3_qp2qg"]
+
+[sub_resource type="Theme" id="Theme_xx4vw"]
 
 [node name="ResultScreen" type="Control"]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ti8m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_8s5ru")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_2eao4")
+text = "Main menu
+"
+
+[node name="GameOverText" type="Label" parent="."]
+layout_mode = 2
+offset_left = 384.0
+offset_top = 179.0
+offset_right = 917.0
+offset_bottom = 266.0
+theme = SubResource("Theme_xx4vw")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.317647, 1, 0.752941, 1)
+theme_override_fonts/font = ExtResource("3_qp2qg")
+theme_override_font_sizes/font_size = 85
+text = "YOU WON!!!!"
