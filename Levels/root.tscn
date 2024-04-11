@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf15hvpo84lip"]
+[gd_scene load_steps=12 format=3 uid="uid://cf15hvpo84lip"]
 
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="3_16tdy"]
 [ext_resource type="PackedScene" uid="uid://n0cexqkpwx4i" path="res://Scenes/Platform.tscn" id="4_gpy75"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bhdp6qfevaflx" path="res://Scenes/Ball.tscn" id="8_r0a2l"]
 [ext_resource type="PackedScene" uid="uid://eo16ukgrmotl" path="res://Scenes/ProjectileSpawner.tscn" id="9_r22id"]
 [ext_resource type="PackedScene" uid="uid://d3a0x1kxvbv0m" path="res://Scenes/Coin.tscn" id="9_rkqar"]
+[ext_resource type="SpriteFrames" uid="uid://xc55w45vqb1r" path="res://Assets/coin_frames.tres" id="10_dn1iw"]
 [ext_resource type="PackedScene" uid="uid://bw3ee6nuica4u" path="res://Scenes/HUD.tscn" id="10_wt2l0"]
 
 [sub_resource type="GDScript" id="GDScript_s5hp6"]
@@ -107,3 +108,4 @@ position = Vector2(-69, -256)
 
 [node name="Coin" parent="." instance=ExtResource("9_rkqar")]
 position = Vector2(-73, -17)
+animation = ExtResource("10_dn1iw")

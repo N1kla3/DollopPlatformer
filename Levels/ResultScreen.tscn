@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dvxr8g2rdfu8f"]
+
+[node name="ResultScreen" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0

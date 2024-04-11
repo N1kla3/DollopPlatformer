@@ -20,10 +20,9 @@ func _enter_tree() -> void:
 	player.global_position = Vector2(149, -130)
 
 
-func _process(delta: float) -> void:
-	pass
-
 func _input(event: InputEvent) -> void:
+	if player && player.score > 100:
+		print("Game Over")
 	if event is InputEventKey:
 		if event.is_pressed and event.keycode == KEY_ESCAPE:
 			main_menu_ui.toggle_menu(true)

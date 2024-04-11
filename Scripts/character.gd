@@ -19,10 +19,12 @@ var game_state : GameState
 var health: int = 100 : set = setHealth
 var expirience: int = 0 : set = setExp
 var level: int = 1 : set = setLevel
+var score: int = 0 : set = setScore
 
 signal health_changed(old_value, new_value)
 signal exp_changed(old_value, new_value)
 signal level_changed(old_value, new_value)
+signal score_changed(old_value, new_value)
 
 @export var animation : SpriteFrames
 
@@ -42,6 +44,11 @@ func setLevel(new_val : int):
 	var cache = level
 	level = new_val
 	level_changed.emit(cache, level)
+
+func setScore(new_val : int):
+	var cache = score
+	score = new_val
+	score_changed.emit(cache, score)
 
 func _ready() -> void:
 	animation_sprite.sprite_frames = animation
