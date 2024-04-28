@@ -24,9 +24,10 @@ func fly_to(location: Vector2):
 func on_hit(body: Node2D):
 	print("hit by %s", body.name)
 	var temp = body as Platform_character
-	temp.health -= 20
-	hide()
-	should_start_moving = false
-	collision_layer = 0x00
-	collision_mask = 0x00
-	queue_free()
+	if temp:
+		temp.health -= 20
+		hide()
+		should_start_moving = false
+		collision_layer = 0x00
+		collision_mask = 0x00
+		queue_free()

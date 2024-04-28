@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf15hvpo84lip"]
+[gd_scene load_steps=13 format=3 uid="uid://cf15hvpo84lip"]
 
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="3_16tdy"]
 [ext_resource type="PackedScene" uid="uid://n0cexqkpwx4i" path="res://Scenes/Platform.tscn" id="4_gpy75"]
@@ -24,6 +24,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
+[sub_resource type="Curve2D" id="Curve2D_dphh8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -79.76, 40, -2.29101, 110.124, 2.29101, -110.124, 129.24, -72, 0, 0, 0, 0, -59.76, -192)
+}
+point_count = 3
 
 [node name="LevelGameState" type="Node2D"]
 script = SubResource("GDScript_s5hp6")
@@ -95,9 +101,20 @@ position = Vector2(0, -48)
 [node name="Platform4" parent="." instance=ExtResource("4_gpy75")]
 position = Vector2(307, -42)
 
-[node name="Platform5" parent="." instance=ExtResource("4_gpy75")]
-position = Vector2(-337, -130)
-Speed = -200.0
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-332.24, -130)
+curve = SubResource("Curve2D_dphh8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(129.196, -77.3172)
+rotation = -1.56564
+progress = 264.729
+rotates = false
+
+[node name="Platform5" parent="Path2D/PathFollow2D" instance=ExtResource("4_gpy75")]
+PercSpeed = 0.1
+UsePercentageSpeed = true
+InvertStartingDirection = true
 
 [node name="Ball" parent="." instance=ExtResource("8_r0a2l")]
 position = Vector2(-69, -256)
@@ -107,5 +124,5 @@ position = Vector2(-69, -256)
 [node name="Control" parent="CanvasLayer" instance=ExtResource("10_wt2l0")]
 
 [node name="Coin" parent="." instance=ExtResource("9_rkqar")]
-position = Vector2(-73, -17)
+position = Vector2(-70, -66)
 animation = ExtResource("10_dn1iw")

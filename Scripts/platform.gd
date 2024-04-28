@@ -1,21 +1,27 @@
 extends StaticBody2D
 
 @export var Speed: float = 50
-@export var ChangeDirectionTime: float = 1
+@export var PercSpeed: float = 10
+@export var UsePercentageSpeed = false
+@export var InvertStartingDirection = false
 
-var temp_time: float = 0
-var temp_direction = 1
+var path : PathFollow2D
+var path_is_loop: bool
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	path = get_parent() as PathFollow2D
+	if path:
+		path_is_loop = path.loop
+		if InvertStartingDirection:
+			Speed *= -1
+			PercSpeed *= -1
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	temp_time += delta
-	var temp_velocity = Vector2(0, temp_direction * Speed * delta);
-	translate(temp_velocity)
-	if temp_time >= ChangeDirectionTime:
-		temp_direction = -temp_direction
-		temp_time = 0
+	if path:
+		if UsePercentageSpeed:
+			var change = PercSpeed * delta
+			path.progress_ratio += change
+		else:
+			var change = Speed * delta
+			path.progress += change
