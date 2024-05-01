@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpqifr1o8dr0x" path="res://Assets/platform.png" id="2_nnpwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epmia"]
-size = Vector2(100, 30)
+size = Vector2(100, 20)
 
 [node name="Platform" type="StaticBody2D"]
 collision_layer = 8
@@ -16,5 +16,4 @@ shape = SubResource("RectangleShape2D_epmia")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-rotation = 0.02182
 texture = ExtResource("2_nnpwa")
