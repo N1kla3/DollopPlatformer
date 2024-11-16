@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cf15hvpo84lip"]
+[gd_scene load_steps=15 format=3 uid="uid://cf15hvpo84lip"]
 
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="3_16tdy"]
 [ext_resource type="PackedScene" uid="uid://n0cexqkpwx4i" path="res://Scenes/Platform.tscn" id="4_gpy75"]
@@ -30,6 +30,10 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -79.76, 40, -2.29101, 110.124, 2.29101, -110.124, 129.24, -72, 0, 0, 0, 0, -59.76, -192)
 }
 point_count = 3
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wytxs"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_7hgo5"]
 
 [node name="LevelGameState" type="Node2D"]
 script = SubResource("GDScript_s5hp6")
@@ -137,3 +141,15 @@ collision_size = 0
 position = Vector2(-64, -84)
 animation = ExtResource("10_dn1iw")
 collision_size = 111
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(-53, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(46, 32)
+shape = SubResource("WorldBoundaryShape2D_wytxs")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1391, 784)
+stream = SubResource("AudioStreamWAV_7hgo5")
+pitch_scale = 0.78
