@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/coin.gd" id="1_n6nq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugdok"]
-size = Vector2(23, 23)
+size = Vector2(111, 111)
 
 [node name="Coin" type="Area2D"]
 collision_layer = 32
