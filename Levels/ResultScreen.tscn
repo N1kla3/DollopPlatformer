@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvxr8g2rdfu8f"]
 
-[ext_resource type="Script" path="res://Scripts/result_screen.gd" id="1_6ti8m"]
+[ext_resource type="Script" uid="uid://blxs7gfnq7fsk" path="res://Scripts/result_screen.gd" id="1_6ti8m"]
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="1_8s5ru"]
 [ext_resource type="Theme" uid="uid://cvw3ng5tlro5c" path="res://Assets/ui.tres" id="2_2eao4"]
 [ext_resource type="FontFile" uid="uid://d4qtaqo4ws2i" path="res://Assets/ARCADECLASSIC.TTF" id="3_qp2qg"]
