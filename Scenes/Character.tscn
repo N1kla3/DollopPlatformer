@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5smf5bex6rh3"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_0roq8"]
+[ext_resource type="Script" uid="uid://e70qfabfedcn" path="res://Scripts/character.gd" id="1_0roq8"]
 [ext_resource type="Texture2D" uid="uid://bv4hrh0lunv2s" path="res://Assets/fireling.png" id="2_fdhoj"]
 [ext_resource type="SpriteFrames" uid="uid://bxhwibuunmkcp" path="res://Assets/firelinganimation.tres" id="2_v5tba"]
 

@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dmw1fsrqopjv1" path="res://Assets/Nebula Blue.png" id="6_76a6s"]
 [ext_resource type="Texture2D" uid="uid://c4hx0pw2btwed" path="res://Assets/Stars-Big_1_2_PC.png" id="8_j64ic"]
 [ext_resource type="PackedScene" uid="uid://bhdp6qfevaflx" path="res://Scenes/Ball.tscn" id="8_r0a2l"]
+[ext_resource type="SpriteFrames" uid="uid://ciftea0ytui0t" path="res://Assets/LifeSpher.res" id="9_6sufn"]
 [ext_resource type="PackedScene" uid="uid://eo16ukgrmotl" path="res://Scenes/ProjectileSpawner.tscn" id="9_r22id"]
 [ext_resource type="PackedScene" uid="uid://d3a0x1kxvbv0m" path="res://Scenes/Coin.tscn" id="9_rkqar"]
-[ext_resource type="SpriteFrames" uid="uid://xc55w45vqb1r" path="res://Assets/coin_frames.tres" id="10_dn1iw"]
 [ext_resource type="PackedScene" uid="uid://bw3ee6nuica4u" path="res://Scenes/HUD.tscn" id="10_wt2l0"]
 
 [sub_resource type="GDScript" id="GDScript_s5hp6"]
@@ -124,14 +124,16 @@ InvertStartingDirection = true
 position = Vector2(-69, -256)
 
 [node name="Coin2" parent="." instance=ExtResource("9_rkqar")]
-position = Vector2(435, -174)
-animation = ExtResource("10_dn1iw")
-collision_size = 33
+position = Vector2(434, -174)
+priority = 5
+score_value = 15
+animation = ExtResource("9_6sufn")
+collision_size = 41
 
 [node name="Coin3" parent="." instance=ExtResource("9_rkqar")]
 position = Vector2(-453, -255)
-animation = ExtResource("10_dn1iw")
-collision_size = 0
+animation = ExtResource("9_6sufn")
+collision_size = 37
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -139,8 +141,8 @@ collision_size = 0
 
 [node name="Coin" parent="." instance=ExtResource("9_rkqar")]
 position = Vector2(-64, -84)
-animation = ExtResource("10_dn1iw")
-collision_size = 111
+animation = ExtResource("9_6sufn")
+collision_size = 47
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-53, 56)

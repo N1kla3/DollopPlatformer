@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyfsjcs054qyn"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_e5qqg"]
+[ext_resource type="Script" uid="uid://1ivkg4joymkh" path="res://Scripts/main_menu.gd" id="1_e5qqg"]
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="2_e80wm"]
 [ext_resource type="Theme" uid="uid://cvw3ng5tlro5c" path="res://Assets/ui.tres" id="3_cq1fm"]
 
