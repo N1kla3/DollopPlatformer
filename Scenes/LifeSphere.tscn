@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgjefcbjeigd2"]
+
+[ext_resource type="Script" uid="uid://1tajdktp76nm" path="res://Scripts/coin.gd" id="1_4xu70"]
+[ext_resource type="Script" uid="uid://bpmwccnfpmsgm" path="res://Scripts/life_sphere.gd" id="1_dy2hb"]
+[ext_resource type="SpriteFrames" uid="uid://ciftea0ytui0t" path="res://Assets/LifeSpher.res" id="2_xtfe8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xu70"]
+resource_local_to_scene = true
+size = Vector2(40, 40)
+
+[node name="LifeSphere" type="Area2D"]
+script = ExtResource("1_dy2hb")
+heal = 25
+animation = ExtResource("2_xtfe8")
+collision_size = 40
+metadata/_custom_type_script = ExtResource("1_4xu70")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_4xu70")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+sprite_frames = ExtResource("2_xtfe8")
+animation = &"Idle"
+frame_progress = 0.980676
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": ""
+},
+"slice_section": false
+}

@@ -18,8 +18,9 @@ const animation_name = "Idle"
 		collision_size = new_size
 		if Engine.is_editor_hint() && $CollisionShape2D:
 			var temp_shape = $CollisionShape2D.shape as RectangleShape2D
-			temp_shape.size.x = new_size;
-			temp_shape.size.y = new_size;
+			if temp_shape:
+				temp_shape.size.x = new_size;
+				temp_shape.size.y = new_size;
 			
 
 func _ready() -> void:
@@ -27,14 +28,18 @@ func _ready() -> void:
 	%AnimatedSprite2D.sprite_frames = animation	
 	%AnimatedSprite2D.play(animation_name)
 	var temp_shape = $CollisionShape2D.shape as RectangleShape2D
-	temp_shape.size.x = collision_size;
-	temp_shape.size.y = collision_size;
+	if temp_shape:
+		temp_shape.size.x = collision_size;
+		temp_shape.size.y = collision_size;
+
+func apply_sphere(character : Platform_character) -> void:
+	character.score += score_value
 
 func on_body_entered(body: Node2D):
 	print("body entered", body.name)
 	var temp = body as Platform_character
 	if temp:
-		temp.score += score_value
+		apply_sphere(temp)
 		hide()
 		collision_layer = 0x00
 		collision_mask = 0x00
