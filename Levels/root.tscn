@@ -26,10 +26,11 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="Curve2D" id="Curve2D_dphh8"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -79.76, 40, -2.29101, 110.124, 2.29101, -110.124, 129.24, -72, 0, 0, 0, 0, -59.76, -192)
+"points": PackedVector2Array(0, 0, 0, 0, -58.8033, 33.974, -2.29101, 110.124, 2.29101, -110.124, 89.6667, -83.1123)
 }
-point_count = 3
+point_count = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wytxs"]
 
@@ -102,15 +103,12 @@ position = Vector2(-199, -57)
 [node name="ProjectileSpawner" parent="Platform6" instance=ExtResource("9_r22id")]
 position = Vector2(0, -48)
 
-[node name="Platform4" parent="." instance=ExtResource("4_gpy75")]
-position = Vector2(307, -42)
-
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-332.24, -130)
 curve = SubResource("Curve2D_dphh8")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(129.196, -77.317)
+position = Vector2(89.6667, -83.1123)
 rotation = -1.56564
 progress = 264.729
 rotates = false
@@ -139,9 +137,6 @@ position = Vector2(1391, 784)
 stream = SubResource("AudioStreamWAV_7hgo5")
 pitch_scale = 0.78
 
-[node name="LifeSphere" parent="." instance=ExtResource("9_vc72m")]
-position = Vector2(304, -89)
-
 [node name="Coin4" parent="." instance=ExtResource("9_rkqar")]
 position = Vector2(-122, -132)
 
@@ -150,3 +145,23 @@ position = Vector2(432, -137)
 
 [node name="LifeSphere3" parent="." instance=ExtResource("9_vc72m")]
 position = Vector2(137, -50)
+collision_size = 105
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(294.948, -97.954)
+scale = Vector2(0.491283, 0.734501)
+curve = SubResource("Curve2D_dphh8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(-58.8033, 33.974)
+rotation = -1.56564
+rotates = false
+loop = false
+
+[node name="Platform4" parent="Path2D2/PathFollow2D" instance=ExtResource("4_gpy75")]
+position = Vector2(-226.099, -76.7861)
+rotation = 1.56564
+scale = Vector2(2.32851, 1.50649)
+
+[node name="LifeSphere" parent="Path2D2/PathFollow2D/Platform4" instance=ExtResource("9_vc72m")]
+position = Vector2(-3, -47)
