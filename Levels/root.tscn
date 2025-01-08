@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf15hvpo84lip"]
+[gd_scene load_steps=16 format=3 uid="uid://cf15hvpo84lip"]
 
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="3_16tdy"]
 [ext_resource type="PackedScene" uid="uid://n0cexqkpwx4i" path="res://Scenes/Platform.tscn" id="4_gpy75"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d3a0x1kxvbv0m" path="res://Scenes/Coin.tscn" id="9_rkqar"]
 [ext_resource type="PackedScene" uid="uid://dgjefcbjeigd2" path="res://Scenes/LifeSphere.tscn" id="9_vc72m"]
 [ext_resource type="PackedScene" uid="uid://bw3ee6nuica4u" path="res://Scenes/HUD.tscn" id="10_wt2l0"]
+[ext_resource type="PackedScene" uid="uid://bkoukg7n0hqsg" path="res://Scenes/SwiftCoin.tscn" id="11_vupgg"]
 
 [sub_resource type="GDScript" id="GDScript_s5hp6"]
 script/source = "extends GameState
@@ -138,7 +139,8 @@ stream = SubResource("AudioStreamWAV_7hgo5")
 pitch_scale = 0.78
 
 [node name="Coin4" parent="." instance=ExtResource("9_rkqar")]
-position = Vector2(-122, -132)
+position = Vector2(-245, -115)
+collision_size = 82
 
 [node name="LifeSphere2" parent="." instance=ExtResource("9_vc72m")]
 position = Vector2(432, -137)
@@ -165,3 +167,7 @@ scale = Vector2(2.32851, 1.50649)
 
 [node name="LifeSphere" parent="Path2D2/PathFollow2D/Platform4" instance=ExtResource("9_vc72m")]
 position = Vector2(-3, -47)
+
+[node name="Coin" parent="." instance=ExtResource("11_vupgg")]
+position = Vector2(-60, -39)
+collision_size = 62

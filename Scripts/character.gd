@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 class_name Platform_character
 
-const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 const MOVELEFT = 'move_left'
@@ -20,6 +19,7 @@ var health: int = 100 : set = setHealth
 var expirience: int = 0 : set = setExp
 var level: int = 1 : set = setLevel
 var score: int = 0 : set = setScore
+var speed: int = 300 : set = setSpeed
 
 signal health_changed(old_value, new_value)
 signal exp_changed(old_value, new_value)
@@ -50,6 +50,9 @@ func setScore(new_val : int):
 	score = new_val
 	score_changed.emit(cache, score)
 
+func setSpeed(new_val : int):
+	speed = new_val
+
 func _ready() -> void:
 	animation_sprite.sprite_frames = animation
 	game_state = get_parent()
@@ -60,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var direction = Input.get_vector(MOVELEFT, MOVERIGHT, MOVEUP, MOVEDOWN)
-	velocity.x = SPEED * direction.x
+	velocity.x = speed * direction.x
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta

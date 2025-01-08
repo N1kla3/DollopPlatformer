@@ -1,12 +1,12 @@
 @tool
 extends Coin
+class_name SwiftCoin
 
-class_name LifeSphere
 
-@export var heal : int
+@export var additional_movespeed : int
 
 func apply_sphere(character : Platform_character) -> void:
-	character.health += heal;
+	character.speed += additional_movespeed
 
 func _ready() -> void:
 	super()
