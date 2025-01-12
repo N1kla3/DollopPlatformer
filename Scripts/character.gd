@@ -27,6 +27,7 @@ signal level_changed(old_value, new_value)
 signal score_changed(old_value, new_value)
 
 @export var animation : SpriteFrames
+@export var attributes : AttributeAsset
 
 @onready var animation_sprite = $AnimatedSprite2D
 

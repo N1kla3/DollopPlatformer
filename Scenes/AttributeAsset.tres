@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2syody24fjsa"]
+
+[ext_resource type="Script" path="res://Scripts/attribute_asset.gd" id="1_nq4tf"]
+
+[resource]
+script = ExtResource("1_nq4tf")
