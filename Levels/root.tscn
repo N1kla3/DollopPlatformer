@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cf15hvpo84lip"]
+[gd_scene load_steps=17 format=3 uid="uid://cf15hvpo84lip"]
 
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="3_16tdy"]
 [ext_resource type="PackedScene" uid="uid://n0cexqkpwx4i" path="res://Scenes/Platform.tscn" id="4_gpy75"]
@@ -37,11 +37,14 @@ point_count = 2
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_7hgo5"]
 
+[sub_resource type="Curve2D" id="Curve2D_vupgg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 47.65, -2.15385, 18.4285, 0, 0, 0, 0, 0.53846, -237.29)
+}
+point_count = 2
+
 [node name="LevelGameState" type="Node2D"]
 script = SubResource("GDScript_s5hp6")
-
-[node name="Platform" parent="." instance=ExtResource("4_gpy75")]
-position = Vector2(45, 64)
 
 [node name="Platform2" parent="." instance=ExtResource("4_gpy75")]
 position = Vector2(161, 11)
@@ -171,3 +174,17 @@ position = Vector2(-3, -47)
 [node name="Coin" parent="." instance=ExtResource("11_vupgg")]
 position = Vector2(-60, -39)
 collision_size = 62
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2(40, 2.29113)
+scale = Vector2(1.85714, 1.72064)
+curve = SubResource("Curve2D_vupgg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(-2.15385, 18.4285)
+rotation = 1.5708
+
+[node name="Platform" parent="Path2D3/PathFollow2D" instance=ExtResource("4_gpy75")]
+position = Vector2(-5.81178, -5.96046e-07)
+rotation = -1.5708
+scale = Vector2(0.538462, 0.581178)
