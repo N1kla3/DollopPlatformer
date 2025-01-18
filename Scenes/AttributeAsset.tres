@@ -1,6 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2syody24fjsa"]
+[gd_resource type="Resource" script_class="AttributeAsset" load_steps=2 format=3 uid="uid://b2syody24fjsa"]
 
-[ext_resource type="Script" path="res://Scripts/attribute_asset.gd" id="1_nq4tf"]
+[ext_resource type="Script" uid="uid://bg7kd7ms2o24o" path="res://Scripts/attribute_asset.gd" id="1_nq4tf"]
 
 [resource]
 script = ExtResource("1_nq4tf")
+health = 0
+max_health = 0
+speed = 0
+max_speed = 0
+damage = 0

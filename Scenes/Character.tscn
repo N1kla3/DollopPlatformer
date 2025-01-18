@@ -1,17 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5smf5bex6rh3"]
+[gd_scene load_steps=9 format=3 uid="uid://b5smf5bex6rh3"]
 
 [ext_resource type="Script" uid="uid://e70qfabfedcn" path="res://Scripts/character.gd" id="1_0roq8"]
 [ext_resource type="Texture2D" uid="uid://bv4hrh0lunv2s" path="res://Assets/fireling.png" id="2_fdhoj"]
 [ext_resource type="SpriteFrames" uid="uid://bxhwibuunmkcp" path="res://Assets/firelinganimation.tres" id="2_v5tba"]
 [ext_resource type="Script" uid="uid://bg7kd7ms2o24o" path="res://Scripts/attribute_asset.gd" id="3_v7dgu"]
+[ext_resource type="Script" uid="uid://63lccidnf77i" path="res://Scripts/attributes.gd" id="5_vdqda"]
 
 [sub_resource type="Resource" id="Resource_vdqda"]
 script = ExtResource("3_v7dgu")
-health = 0
-max_health = 0
-speed = 0
-max_speed = 0
-damage = 0
+health = 111
+max_health = 111
+speed = 300
+max_speed = 400
+damage = 12
 metadata/_custom_type_script = ExtResource("3_v7dgu")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bd6na"]
@@ -47,3 +48,6 @@ sprite_frames = SubResource("SpriteFrames_bd6na")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3s1g1")
+
+[node name="Attributes" type="Node" parent="."]
+script = ExtResource("5_vdqda")
