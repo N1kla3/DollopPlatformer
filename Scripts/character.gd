@@ -15,26 +15,18 @@ const JUMP = 'jump'
 const level_up_point: int = 50
 
 var game_state : GameState
-var health: int = 100 : set = setHealth
 var expirience: int = 0 : set = setExp
 var level: int = 1 : set = setLevel
 var score: int = 0 : set = setScore
-var speed: int = 300 : set = setSpeed
 
-signal health_changed(old_value, new_value)
 signal exp_changed(old_value, new_value)
 signal level_changed(old_value, new_value)
 signal score_changed(old_value, new_value)
 
 @export var animation : SpriteFrames
-@export var attributes : AttributeAsset
 
 @onready var animation_sprite = $AnimatedSprite2D
-
-func setHealth(new_val : int):
-	var cache = health
-	health = new_val
-	health_changed.emit(cache, health)
+@onready var attributes_node : AttributeSet = %Attributes
 
 func setExp(new_val : int):
 	var cache = expirience
@@ -51,21 +43,23 @@ func setScore(new_val : int):
 	score = new_val
 	score_changed.emit(cache, score)
 
-func setSpeed(new_val : int):
-	speed = new_val
-
 func _ready() -> void:
 	animation_sprite.sprite_frames = animation
 	game_state = get_parent()
 	set_motion_mode(MOTION_MODE_GROUNDED)
+	attributes_node.health_changed.connect(hp_changed)
 
 func setPlatformCollision(value : bool):
 	set_collision_mask_value(4, value)
 
+func hp_changed(_old, new_val):
+	if (new_val < 0):
+		print("character has died")
 
 func _physics_process(delta: float) -> void:
 	if game_state and not game_state.is_player_input_allowed:
 		return
+	var speed = attributes_node.get_value(AttributeSet.attribute_type.SPEED)
 
 	velocity.x = 0
 
@@ -77,7 +71,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed(JUMP) and is_on_floor():
-		set_collision_mask_value(4, false)
+		setPlatformCollision(false)
 		call_deferred("setPlatformCollision", true)
 		velocity.y = JUMP_VELOCITY
 

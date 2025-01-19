@@ -25,7 +25,7 @@ func on_hit(body: Node2D):
 	print("hit by %s", body.name)
 	var temp = body as Platform_character
 	if temp:
-		temp.health -= 20
+		temp.attributes_node.instant_effect(AttributeSet.attribute_type.DAMAGE, -20)
 		hide()
 		should_start_moving = false
 		collision_layer = 0x00

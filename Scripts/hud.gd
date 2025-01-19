@@ -13,12 +13,12 @@ func _ready() -> void:
 
 	game_state = get_parent().get_parent()
 	var temp_player = game_state.player
-	temp_player.health_changed.connect(set_health)
+	#temp_player.attributes_node.health_changed.connect(set_health)
 	temp_player.exp_changed.connect(set_exp)
 	temp_player.level_changed.connect(set_level)
 	temp_player.score_changed.connect(set_score)
 	
-	set_health(0, temp_player.health) 
+	#set_health(0, temp_player.health) 
 	set_level(0, temp_player.level) 
 	set_exp(0, temp_player.expirience) 
 	set_score(0, temp_player.score)
