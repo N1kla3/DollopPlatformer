@@ -97,5 +97,3 @@ func broadcast_signal(type : attribute_type, old : int, new_value : int):
 			max_speed_changed.emit(old, new_value)
 		attribute_type.DAMAGE:
 			damage_changed.emit(old, new_value)
-
-

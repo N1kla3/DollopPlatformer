@@ -22,6 +22,7 @@ var score: int = 0 : set = setScore
 signal exp_changed(old_value, new_value)
 signal level_changed(old_value, new_value)
 signal score_changed(old_value, new_value)
+signal attributes_ready(value : AttributeSet)
 
 @export var animation : SpriteFrames
 
@@ -47,6 +48,7 @@ func _ready() -> void:
 	animation_sprite.sprite_frames = animation
 	game_state = get_parent()
 	set_motion_mode(MOTION_MODE_GROUNDED)
+	attributes_ready.emit(attributes_node)
 	attributes_node.health_changed.connect(hp_changed)
 
 func setPlatformCollision(value : bool):

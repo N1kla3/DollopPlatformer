@@ -13,12 +13,13 @@ func _ready() -> void:
 
 	game_state = get_parent().get_parent()
 	var temp_player = game_state.player
-	#temp_player.attributes_node.health_changed.connect(set_health)
-	temp_player.exp_changed.connect(set_exp)
-	temp_player.level_changed.connect(set_level)
-	temp_player.score_changed.connect(set_score)
+	if temp_player:
+		temp_player.exp_changed.connect(set_exp)
+		temp_player.level_changed.connect(set_level)
+		temp_player.score_changed.connect(set_score)
+		temp_player.attributes_ready.connect(setup_attributes)
+
 	
-	#set_health(0, temp_player.health) 
 	set_level(0, temp_player.level) 
 	set_exp(0, temp_player.expirience) 
 	set_score(0, temp_player.score)
@@ -37,3 +38,7 @@ func set_exp(_old_exp:int, new_exp: int):
 
 func set_score(_old_score : int, new_score : int):
 	score_label.text = str("Score: ", new_score)
+
+func setup_attributes(value : AttributeSet):
+	value.health_changed.connect(set_health)
+	set_health(0, value.get_value(AttributeSet.attribute_type.HEALTH)) 
