@@ -19,6 +19,11 @@ class effect:
 	var duration : float
 
 
+class attribute:
+	var base_val : int
+	var max_val : int
+
+
 @export var data : AttributeAsset
 
 var attributes : Dictionary[attribute_type, int]

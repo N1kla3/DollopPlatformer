@@ -27,7 +27,11 @@ signal attributes_ready(value : AttributeSet)
 @export var animation : SpriteFrames
 
 @onready var animation_sprite = $AnimatedSprite2D
+# deprecated
 @onready var attributes_node : AttributeSet = %Attributes
+
+@onready var health_comp : health_atr = %Health_comp
+
 
 func setExp(new_val : int):
 	var cache = expirience
@@ -57,6 +61,7 @@ func setPlatformCollision(value : bool):
 func hp_changed(_old, new_val):
 	if (new_val < 0):
 		print("character has died")
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	if game_state and not game_state.is_player_input_allowed:
