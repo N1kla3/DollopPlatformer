@@ -1,6 +1,7 @@
 extends Control
 
 var game_state: GameState
+var player : Platform_character
 
 var health_bar: TextureProgressBar
 var exp_bar: TextureProgressBar
@@ -12,23 +13,25 @@ func _ready() -> void:
 	score_label = %ScoreLabel
 
 	game_state = get_parent().get_parent()
-	var temp_player = game_state.player
-	if temp_player:
-		temp_player.exp_changed.connect(set_exp)
-		temp_player.level_changed.connect(set_level)
-		temp_player.score_changed.connect(set_score)
-		temp_player.attributes_ready.connect(setup_attributes)
+	player = game_state.player
+	if player:
+		player.exp_changed.connect(set_exp)
+		player.level_changed.connect(set_level)
+		player.score_changed.connect(set_score)
+		player.ready.connect(setup_attributes)
 
 	
-	set_level(0, temp_player.level) 
-	set_exp(0, temp_player.expirience) 
-	set_score(0, temp_player.score)
+	set_level(0, player.level) 
+	set_exp(0, player.expirience) 
+	set_score(0, player.score)
 
 func _process(_delta: float) -> void:
 	pass
 
-func set_health(_old_health:int, new_health: int):
-	health_bar.set_value(new_health)
+func set_health(_vlaue : int):
+	health_bar.min_value = 0
+	health_bar.value = player.health_comp.health
+	health_bar.max_value = player.health_comp.max_health
 
 func set_level(_old_level:int, _new_level: int):
 	pass
@@ -39,6 +42,7 @@ func set_exp(_old_exp:int, new_exp: int):
 func set_score(_old_score : int, new_score : int):
 	score_label.text = str("Score: ", new_score)
 
-func setup_attributes(value : AttributeSet):
-	value.health_changed.connect(set_health)
-	set_health(0, value.get_value(AttributeSet.attribute_type.HEALTH)) 
+func setup_attributes():
+	player.health_comp.health_change.connect(set_health)
+	set_health(0)
+

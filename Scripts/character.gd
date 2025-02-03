@@ -22,16 +22,12 @@ var score: int = 0 : set = setScore
 signal exp_changed(old_value, new_value)
 signal level_changed(old_value, new_value)
 signal score_changed(old_value, new_value)
-signal attributes_ready(value : AttributeSet)
 
 @export var animation : SpriteFrames
 
 @onready var animation_sprite = $AnimatedSprite2D
-# deprecated
-@onready var attributes_node : AttributeSet = %Attributes
-
 @onready var health_comp : health_atr = %Health_comp
-
+@onready var speed_comp : speed_atr = %Speed_comp
 
 func setExp(new_val : int):
 	var cache = expirience
@@ -52,22 +48,21 @@ func _ready() -> void:
 	animation_sprite.sprite_frames = animation
 	game_state = get_parent()
 	set_motion_mode(MOTION_MODE_GROUNDED)
-	attributes_ready.emit(attributes_node)
-	attributes_node.health_changed.connect(hp_changed)
+	health_comp.health_change.connect(hp_changed)
 
 func setPlatformCollision(value : bool):
 	set_collision_mask_value(4, value)
 
-func hp_changed(_old, new_val):
-	if (new_val < 0):
+func hp_changed(new_val):
+	if (new_val <= 0):
 		print("character has died")
 		queue_free()
+
 
 func _physics_process(delta: float) -> void:
 	if game_state and not game_state.is_player_input_allowed:
 		return
-	var speed = attributes_node.get_value(AttributeSet.attribute_type.SPEED)
-
+	var speed = speed_comp.speed
 	velocity.x = 0
 
 	var direction = Input.get_vector(MOVELEFT, MOVERIGHT, MOVEUP, MOVEDOWN)

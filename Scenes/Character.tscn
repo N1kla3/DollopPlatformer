@@ -49,9 +49,11 @@ data = ExtResource("6_xloa1")
 [node name="Health_comp" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("6_4b18b")
-health = 100
 max_health = 222
+health = 100
 
 [node name="Speed_comp" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("7_4b18b")
+speed = 200
+max_speed = 500

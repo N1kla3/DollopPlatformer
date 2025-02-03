@@ -2,8 +2,8 @@ extends Node
 
 class_name speed_atr
 
-@export var speed : int : set = setSpeed
-@export var max_speed : int : set = setMaxSpeed
+@export var speed : int : set = addSpeed
+@export var max_speed : int : set = addMaxSpeed
 var effects : Array[effect]
 
 signal speed_change(int)
@@ -15,12 +15,12 @@ class effect:
 	var duration : float
 
 
-func setSpeed(value : int):
+func addSpeed(value : int):
 	speed += value
 	clamp(speed, 0, max_speed)
 	speed_change.emit(speed)
 	
-func setMaxSpeed(value : int):
+func addMaxSpeed(value : int):
 	max_speed += value
 	max_speed_change.emit(max_speed)
 

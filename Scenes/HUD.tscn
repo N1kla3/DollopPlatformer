@@ -33,6 +33,7 @@ unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
+value = 100.0
 rounded = true
 texture_under = ExtResource("2_iwo6d")
 texture_progress = ExtResource("2_jayma")

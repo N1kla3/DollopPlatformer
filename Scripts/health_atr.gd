@@ -13,8 +13,9 @@ class effect_data:
 	var duration : float
 	var id : int
 
+@export var max_health : int
 @export var health : int : set=add_value
-@export var max_health : int = 0
+
 var effects : Array[effect_data]
 static var unique_id = 0
 
@@ -22,7 +23,8 @@ signal health_change(value : int)
 
 func add_value(value : int):
 	health += value;
-	clamp(health, 0, max_health)
+	health = clampi(health, 0, max_health)
+	print("new health is ", health)
 	health_change.emit(health)
 
 
@@ -49,4 +51,3 @@ func _process(delta: float) -> void:
 
 	for id in to_remove:
 		remove_effect(id)
-
