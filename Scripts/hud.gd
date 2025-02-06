@@ -15,14 +15,10 @@ func _ready() -> void:
 	game_state = get_parent().get_parent()
 	player = game_state.player
 	if player:
-		player.exp_changed.connect(set_exp)
-		player.level_changed.connect(set_level)
 		player.score_changed.connect(set_score)
 		player.ready.connect(setup_attributes)
 
 	
-	set_level(0, player.level) 
-	set_exp(0, player.expirience) 
 	set_score(0, player.score)
 
 func _process(_delta: float) -> void:
@@ -33,10 +29,10 @@ func set_health(_vlaue : int):
 	health_bar.value = player.health_comp.health
 	health_bar.max_value = player.health_comp.max_health
 
-func set_level(_old_level:int, _new_level: int):
+func set_level(_new_level: int):
 	pass
 
-func set_exp(_old_exp:int, new_exp: int):
+func set_exp(new_exp: int):
 	exp_bar.set_value(new_exp)
 
 func set_score(_old_score : int, new_score : int):
@@ -44,5 +40,8 @@ func set_score(_old_score : int, new_score : int):
 
 func setup_attributes():
 	player.health_comp.health_change.connect(set_health)
-	set_health(0)
-
+	player.level_comp.level_changed.connect(set_level)
+	player.level_comp.exp_changed.connect(set_exp)
+	set_health(player.health_comp.health)
+	set_level(player.level_comp.level) 
+	set_exp(player.level_comp.experience) 

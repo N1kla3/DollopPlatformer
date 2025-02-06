@@ -7,5 +7,4 @@ func _ready() -> void:
 	body_entered.connect(on_collision)
 
 func on_collision(body : Node):
-	print('df')
 	print(body.name)
