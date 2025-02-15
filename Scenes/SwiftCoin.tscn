@@ -24,7 +24,7 @@ unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = ExtResource("2_qkbgg")
 animation = &"Idle"
-frame_progress = 0.560132
+frame_progress = 0.873729
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,

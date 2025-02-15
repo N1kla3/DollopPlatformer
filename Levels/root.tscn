@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cf15hvpo84lip"]
+[gd_scene load_steps=20 format=3 uid="uid://cf15hvpo84lip"]
 
+[ext_resource type="PackedScene" uid="uid://b5smf5bex6rh3" path="res://Scenes/Character.tscn" id="1_6sufn"]
 [ext_resource type="Texture2D" uid="uid://yii8dki5nh21" path="res://Assets/Shrekige.jpg" id="3_16tdy"]
+[ext_resource type="PackedScene" uid="uid://pntnkuwlumf" path="res://Scenes/PlayerController.tscn" id="3_il3fm"]
 [ext_resource type="PackedScene" uid="uid://n0cexqkpwx4i" path="res://Scenes/Platform.tscn" id="4_gpy75"]
 [ext_resource type="PackedScene" uid="uid://dyfsjcs054qyn" path="res://Scenes/MainMenu.tscn" id="4_yopcr"]
 [ext_resource type="Texture2D" uid="uid://dmw1fsrqopjv1" path="res://Assets/Nebula Blue.png" id="6_76a6s"]
@@ -11,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dgjefcbjeigd2" path="res://Scenes/LifeSphere.tscn" id="9_vc72m"]
 [ext_resource type="PackedScene" uid="uid://bw3ee6nuica4u" path="res://Scenes/HUD.tscn" id="10_wt2l0"]
 [ext_resource type="PackedScene" uid="uid://bkoukg7n0hqsg" path="res://Scenes/SwiftCoin.tscn" id="11_vupgg"]
+[ext_resource type="PackedScene" uid="uid://3twadtfy5jys" path="res://Scenes/PlayerStart.tscn" id="14_n5qeb"]
 
 [sub_resource type="GDScript" id="GDScript_s5hp6"]
 script/source = "extends GameState
@@ -43,8 +46,12 @@ _data = {
 }
 point_count = 2
 
-[node name="LevelGameState" type="Node2D"]
+[node name="LevelGameState" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = SubResource("GDScript_s5hp6")
+player_class = ExtResource("1_6sufn")
+hud_class = ExtResource("10_wt2l0")
+controller_class = ExtResource("3_il3fm")
+spawn_point = NodePath("PlayerStart")
 
 [node name="Platform2" parent="." instance=ExtResource("4_gpy75")]
 position = Vector2(161, 11)
@@ -125,10 +132,6 @@ InvertStartingDirection = true
 [node name="Ball" parent="." instance=ExtResource("8_r0a2l")]
 position = Vector2(-69, -256)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource("10_wt2l0")]
-
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-53, 56)
 
@@ -188,3 +191,6 @@ rotation = 1.5708
 position = Vector2(-5.81178, -5.96046e-07)
 rotation = -1.5708
 scale = Vector2(0.538462, 0.581178)
+
+[node name="PlayerStart" parent="." instance=ExtResource("14_n5qeb")]
+position = Vector2(199, -276)

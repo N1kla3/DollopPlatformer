@@ -1,4 +1,5 @@
 extends Control
+class_name Hud
 
 var game_state: GameState
 var player : Platform_character
@@ -12,14 +13,14 @@ func _ready() -> void:
 	exp_bar = %Exp
 	score_label = %ScoreLabel
 
-	game_state = get_parent().get_parent()
-	player = game_state.player
-	if player:
-		player.score_changed.connect(set_score)
-		player.ready.connect(setup_attributes)
+	# game_state = get_parent().get_parent()
+	# player = game_state.player
+	# if player:
+	# 	player.score_changed.connect(set_score)
+	# 	player.ready.connect(setup_attributes)
 
 	
-	set_score(0, player.score)
+	# set_score(0, player.score)
 
 func _process(_delta: float) -> void:
 	pass

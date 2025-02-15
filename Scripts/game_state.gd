@@ -2,27 +2,40 @@ extends Node2D
 
 class_name GameState
 
-var player_scene = load("res://Scenes/Character.tscn")
+# CONFIG
+@export var player_class : PackedScene
+@export var hud_class : PackedScene
+@export var controller_class : PackedScene
+@export var spawn_point : Node2D
+
+# STATE
 var is_player_input_allowed = true
-var main_menu_ui : MainMenu
-var player: Platform_character
 var score: int
+
+var controller : PlayerController
 
 func _ready() -> void:
 	print("GameState started")
-	main_menu_ui = get_node("MenuCanvas/MainMenu")	
 
 func _enter_tree() -> void:
 	print("GameState started in enter tree")
-	main_menu_ui = get_node("MenuCanvas/MainMenu")	
-	player = player_scene.instantiate()
+	var player = player_class.instantiate()
+	controller = controller_class.instantiate()
+	var hud = hud_class.instantiate()
+	assert(player, "Player class not set!!")
+	assert(controller, "Controller class not set!!")
+	assert(hud, "Hud class not set!!")
+	controller.setPlayer(player)
+	controller.setHud(hud)
+
 	add_child.call_deferred(player)
-	player.global_position = Vector2(149, -130)
+	if false: # reserved for save files
+		pass
+	else:
+		player.global_position = spawn_point.global_position
 
+	add_child.call_deferred(controller)
+	var canvas = CanvasLayer.new()
+	add_child.call_deferred(canvas)
+	canvas.add_child.call_deferred(hud)
 
-func _input(event: InputEvent) -> void:
-	if player && player.score > 100:
-		get_tree().change_scene_to_file("res://Levels/ResultScreen.tscn")
-	if event is InputEventKey:
-		if event.is_pressed and event.keycode == KEY_ESCAPE:
-			main_menu_ui.toggle_menu(true)

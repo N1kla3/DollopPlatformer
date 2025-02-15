@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://3twadtfy5jys"]
+
+[ext_resource type="Script" uid="uid://bnps2gsrqnm3w" path="res://Scenes/editoronly.gd" id="1_s8k2w"]
+
+[node name="PlayerStart" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 253.0
+offset_bottom = 70.0
+text = "PLAYER START"
+script = ExtResource("1_s8k2w")
