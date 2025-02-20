@@ -4,26 +4,30 @@ class_name Hud
 var game_state: GameState
 var player : Platform_character
 
-var health_bar: TextureProgressBar
-var exp_bar: TextureProgressBar
-var score_label: Label
+@onready var health_bar: TextureProgressBar = %Health
+@onready var exp_bar: TextureProgressBar = %Exp
+@onready var score_label: Label = %ScoreLabel
 
 func _ready() -> void:
-	health_bar = %Health
-	exp_bar = %Exp
-	score_label = %ScoreLabel
-
-	# game_state = get_parent().get_parent()
-	# player = game_state.player
-	# if player:
-	# 	player.score_changed.connect(set_score)
-	# 	player.ready.connect(setup_attributes)
-
-	
-	# set_score(0, player.score)
+	if player:
+		player.score_changed.connect(set_score)
+		player.ready.connect(setup_attributes)
+		set_score(0, player.score)
+		setup_attributes()
 
 func _process(_delta: float) -> void:
 	pass
+
+func playerChanged(pl : Platform_character):
+	if player:
+		player.score_changed.disconnect(set_score)
+		player.ready.disconnect(setup_attributes())
+	player = pl
+	if player and is_node_ready():
+		player.score_changed.connect(set_score)
+		player.ready.connect(setup_attributes)
+		set_score(0, player.score)
+		setup_attributes()
 
 func set_health(_vlaue : int):
 	health_bar.min_value = 0

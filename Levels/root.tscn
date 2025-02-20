@@ -179,7 +179,7 @@ position = Vector2(-60, -39)
 collision_size = 62
 
 [node name="Path2D3" type="Path2D" parent="."]
-position = Vector2(40, 2.29113)
+position = Vector2(39, 17)
 scale = Vector2(1.85714, 1.72064)
 curve = SubResource("Curve2D_vupgg")
 
@@ -194,3 +194,14 @@ scale = Vector2(0.538462, 0.581178)
 
 [node name="PlayerStart" parent="." instance=ExtResource("14_n5qeb")]
 position = Vector2(199, -276)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-32, -92)
+scale = Vector2(1.85714, 1.72064)
+collision_layer = 63
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(9.15386, -3.48706)
+scale = Vector2(1.04446, 0.971939)
+build_mode = 1
+polygon = PackedVector2Array(44.7048, 51.1581, 103.624, 20.3306, 145.898, 10.1653, 170.129, -3.58776, 186.111, -37.6714, 285.095, -0.597965, 300.045, 60.3938, 194.359, 70.5591, 142.29, 85.5081, 88.6732, 88.4978, -2.72507, 57.1377)

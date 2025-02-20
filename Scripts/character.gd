@@ -37,6 +37,9 @@ func _ready() -> void:
 	set_motion_mode(MOTION_MODE_GROUNDED)
 	health_comp.health_change.connect(hp_changed)
 
+func onPlayerReady():
+	pass
+
 func setPlatformCollision(value : bool):
 	set_collision_mask_value(4, value)
 

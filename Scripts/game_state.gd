@@ -19,14 +19,17 @@ func _ready() -> void:
 
 func _enter_tree() -> void:
 	print("GameState started in enter tree")
+	# want to spawn hud first
+	var hud = hud_class.instantiate()
 	var player = player_class.instantiate()
 	controller = controller_class.instantiate()
-	var hud = hud_class.instantiate()
 	assert(player, "Player class not set!!")
 	assert(controller, "Controller class not set!!")
 	assert(hud, "Hud class not set!!")
 	controller.setPlayer(player)
 	controller.setHud(hud)
+	player.onPlayerReady()
+	hud.playerChanged(player)
 
 	add_child.call_deferred(player)
 	if false: # reserved for save files
